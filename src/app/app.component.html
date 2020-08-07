@@ -5,10 +5,16 @@
 <!-- </div> -->
 
 <p>TAREA EN CLASES</p>
-<div style="border: solid green;">
-  <app-test name= "Sara" age="3" 
- description="Estudiante" (clickButton)="saveClickChild($event)"></app-test>
+<div style="border: 1px solid green;">
+  <app-test 
+    [name]= "name" 
+    age="3" 
+    description="Estudiante" 
+    (clickButton)="saveClickChild($event)">
+  </app-test>
 </div>
+
+<button (click)=changeName()>Change Name</button>
 
 <!-- <app-test2></app-test2> -->
 
