@@ -62,13 +62,20 @@ export class AppComponent implements OnInit {
 
   2 > 1 ? 'SI' : 'CLARO QUE NO'; */
 
-  const array = from([1,2,3,4,5,6]);
+  //const array = from([1,2,3,4,5,6]);
 
-  array.subscribe(s => console.log('items', s))
+  //array.subscribe(s => console.log('items', s))
 
-  const auux = fromEvent(document, 'mousemove');
+  //const auux = fromEvent(document, 'mousemove');
 
-  auux.subscribe((a:any) => console.log('event: ', a.clientX + ', ' + a.clientY));
+  //auux.subscribe((a:any) => console.log('event: ', a.clientX + ', ' + a.clientY));
+
+ 
+
+  }
+
+  saveClickChild(event){
+    console.log('EVENT Child: ', event)
   }
 
 }
