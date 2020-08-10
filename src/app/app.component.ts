@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
 
   sw = 'true';
 
+  persons=['Sara', 'Elena', 'Andrea', 'Hugo', 'Viviana'];
+
   ngOnInit(){
   
   /* const aux = [7, 5, 3, 1, 9, 6, 7, 8];
@@ -83,7 +85,7 @@ export class AppComponent implements OnInit {
   }
 
   changeName(){
-    this.name = 'Sara';
+    this.name = 'Valeria';
   }
 
 }

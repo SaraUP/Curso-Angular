@@ -20,18 +20,23 @@
 
 <!-- <button name="button" onclick="">BUTTON</button> -->
 
-<persona *ngIf="sw" name= "Sara"></persona>
 
-<button (click)="sw = false;">Change SW</button>
+<!-- ng if -->
+<!--<persona *ngIf="sw" name= "Sara"></persona>-->
 
-
-
-
+<button (click)="sw = false;">Change SW</button> 
 
 
+<!-- ng for -->
+<div *ngFor="let person of persons; let i = index">
+  <p>{{person}} =======> {{i}}</p>
+</div>
 
 
-<!-- test component:
+
+
+
+<!-- test component: -->
 <!--<p>Componente test1 works!</p> -->
 
 <!-- <p>Entrada AGE: {{age}}</p> -->
@@ -59,4 +64,3 @@
   <p>Valor: {{name}}</p>
 
 </div> -->
--->
