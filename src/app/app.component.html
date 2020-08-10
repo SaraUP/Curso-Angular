@@ -4,7 +4,7 @@
   <!-- <app-test age="3" (clickAge)="saveClickChild($event)"></app-test> -->
 <!-- </div> -->
 
-<p>TAREA EN CLASES</p>
+<!-- <p>TAREA EN CLASES</p>
 <div style="border: 1px solid green;">
   <app-test 
     [name]= "name" 
@@ -14,8 +14,12 @@
   </app-test>
 </div>
 
-<button (click)=changeName()>Change Name</button>
+<button (click)=changeName()>Change Name</button> -->
 
 <!-- <app-test2></app-test2> -->
 
 <!-- <button name="button" onclick="">BUTTON</button> -->
+
+<persona *ngIf="sw" name= "Sara"></persona>
+
+<button (click)="sw = false;">Change SW</button>
