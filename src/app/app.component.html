@@ -32,13 +32,30 @@
   <p>{{person}} =======> {{i}}</p>
 </div>
 
-<!-- switch -->
+<!-- ng Switch -->
 <div [ngSwitch]="aux">
   <p *ngSwitchCase="3">El valor es 3</p>
   <p *ngSwitchCase="2">El valor es 2</p>
   <p *ngSwitchDefault>Valor por defecto: No es ni 3 ni 2</p>
 </div>
 
+<!-- ng Style -->
+<!-- <div style="border: 1px solid red; color: yellow">
+  persona
+</div> -->
+
+<button (click)="auxColor = 'yellow'">Amarillo</button>
+<button (click)="auxColor = 'green'">Verde</button>
+<button (click)="auxColor = 'red'">Rojo</button>
+
+<div [ngStyle]="{'border': '1px solid ' + auxColor, 'color': auxColor}">
+  personas
+</div>
+
+<!-- Modifiar el color 1 a la vez -->
+<div [style.color]="auxColor">
+  autos
+</div>
 
 
 
