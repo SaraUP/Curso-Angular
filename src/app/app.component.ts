@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
 
   auxColor = 'red'; 
 
+  auxClass = true;
+
   ngOnInit(){
   
   /* const aux = [7, 5, 3, 1, 9, 6, 7, 8];

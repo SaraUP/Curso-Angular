@@ -57,7 +57,21 @@
   autos
 </div>
 
+<!-- ngClases -->
+<!-- <div class="test1">
+  Sara
+</div> -->
 
+<button (click)="auxClass = !auxClass">Change class</button>
+
+<div [ngClass]="{'test1': auxClass, 'test2': !auxClass}">
+  perritos
+</div>
+
+<!-- Modifiar 1 solo estilo -->
+<div [class.test1]="auxClass">
+  gatitos
+</div>
 
 
 <!-- test component: -->
