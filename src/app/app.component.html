@@ -1,104 +1,11 @@
 <p>SARA</p>
 
-<!-- <div style="border: solid red;"> -->
-  <!-- <app-test age="3" (clickAge)="saveClickChild($event)"></app-test> -->
-<!-- </div> -->
-
-<!-- <p>TAREA EN CLASES</p>
-<div style="border: 1px solid green;">
-  <app-test 
-    [name]= "name" 
-    age="3" 
-    description="Estudiante" 
-    (clickButton)="saveClickChild($event)">
-  </app-test>
+<div *ngFor="let person of persons">
+  <div [ngStyle]="{'background': person.enable ? 'yellow' : 'red'}">
+    <persona [name]="person.name"
+           [lastName]="person.lastName" 
+           [age]="person.age" 
+           [enable]="person.enable">
+   </persona>
+  </div>
 </div>
-
-<button (click)=changeName()>Change Name</button> -->
-
-<!-- <app-test2></app-test2> -->
-
-<!-- <button name="button" onclick="">BUTTON</button> -->
-
-
-<!-- ng if -->
-<!--<persona *ngIf="sw" name= "Sara"></persona>-->
-
-<button (click)="sw = false;">Change SW</button> 
-
-
-<!-- ng for -->
-<div *ngFor="let person of persons; let i = index">
-  <p>{{person}} =======> {{i}}</p>
-</div>
-
-<!-- ng Switch -->
-<div [ngSwitch]="aux">
-  <p *ngSwitchCase="3">El valor es 3</p>
-  <p *ngSwitchCase="2">El valor es 2</p>
-  <p *ngSwitchDefault>Valor por defecto: No es ni 3 ni 2</p>
-</div>
-
-<!-- ng Style -->
-<!-- <div style="border: 1px solid red; color: yellow">
-  persona
-</div> -->
-
-<button (click)="auxColor = 'yellow'">Amarillo</button>
-<button (click)="auxColor = 'green'">Verde</button>
-<button (click)="auxColor = 'red'">Rojo</button>
-
-<div [ngStyle]="{'border': '1px solid ' + auxColor, 'color': auxColor}">
-  personas
-</div>
-
-<!-- Modifiar el color 1 a la vez -->
-<div [style.color]="auxColor">
-  autos
-</div>
-
-<!-- ngClases -->
-<!-- <div class="test1">
-  Sara
-</div> -->
-
-<button (click)="auxClass = !auxClass">Change class</button>
-
-<div [ngClass]="{'test1': auxClass, 'test2': !auxClass}">
-  perritos
-</div>
-
-<!-- Modifiar 1 solo estilo -->
-<div [class.test1]="auxClass">
-  gatitos
-</div>
-
-
-<!-- test component: -->
-<!--<p>Componente test1 works!</p> -->
-
-<!-- <p>Entrada AGE: {{age}}</p> -->
-
-<!-- <button (click)="onClickSave()">SAVE</button> -->
-
-<!--<p>Entrada NAME: {{name}}</p>
-<p>Entrada AGE: {{age}}</p>
-<p>Entrada DESCRIPTION: {{description}}</p>
-
-<button (click)="onClickSave()">SAVE</button> -->
-
-<!-- <input type="text" [value]="user"> -->
-
-<!--<br>
-<br>
-<input type="text" [(ngModel)]="user">
-<p>USER: {{user}}</p> -->
-
-<!--<div style="border: 1px solid red;">
-  <p>TEST 2</p>
-  
-  <input type="text" [(ngModel)]="name">
-  
-  <p>Valor: {{name}}</p>
-
-</div> -->
