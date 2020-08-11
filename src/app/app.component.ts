@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
 
   persons=['Sara', 'Elena', 'Andrea', 'Hugo', 'Viviana'];
 
+  aux=3;
+
   ngOnInit(){
   
   /* const aux = [7, 5, 3, 1, 9, 6, 7, 8];
