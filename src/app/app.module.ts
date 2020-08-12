@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 
 import { PersonaModule } from './modules/persona/persona.module';
 
+import { ProductoModule } from './modules/producto/producto.module';
+
 @NgModule({
   declarations: [
     //Componentes y directivas
@@ -15,7 +17,8 @@ import { PersonaModule } from './modules/persona/persona.module';
     //Modulos dentro de este modulo
     BrowserModule,
     FormsModule,
-    PersonaModule
+    PersonaModule,
+    ProductoModule
   ],
   providers: [
     //Servicios
