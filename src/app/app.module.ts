@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { PersonaModule } from './modules/persona/persona.module';
 
 import { ProductoModule } from './modules/producto/producto.module';
+import { AdminModule } from './modules/admin/admin.module';
+import { UserModule } from './modules/user/user.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ProductoModule } from './modules/producto/producto.module';
     BrowserModule,
     FormsModule,
     PersonaModule,
-    ProductoModule
+    ProductoModule,
+    AdminModule,
+    UserModule
   ],
   providers: [
     //Servicios
