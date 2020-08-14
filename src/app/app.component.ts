@@ -41,8 +41,20 @@ export class AppComponent implements OnInit{
   auxNumber: number = 3;
   exponent: number = 3;
 
-  ngOnInit(){
+  numbers = [1,2,3,4,5,6,7,8,9, 10];
 
+  ngOnInit(){
+    console.log('Pura: ', this.pura(2, 2));
+
+    console.log('Impura: ', this.impura(2, 6));
+  }
+
+  pura(a:number,b:number){
+    return a+b;
+  }
+
+  impura(a:number,b:number){
+    return a+b + Math.random();
   }
 
 }

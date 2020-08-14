@@ -1,28 +1,7 @@
 <p>PIPES</p>
 
-<p>
-  PIPE JSON: {{persons | json}}
-</p>
+<p>Pure: {{numbers | pure}}</p>
 
-<p>
-  PIPE UPPERCASE: {{'cadena' | uppercase}}
-</p>
+<p>Impure: {{numbers | impure}}</p>
 
-<p>
-  PIPE LOWERCASE: {{'SARA' | lowercase}}
-</p>
-
-<p>
-  PIPE DATE: {{'08/13/2020' | date: "yy/dd/MM"}}
-</p>
-
-<p>
-  VAR NAME: {{name | test}}
-</p>
-
-<!-- Expo Pipe -->
-VALUE: <input type="text" [(ngModel)]="auxNumber">
-EXPO: <input type="text" [(ngModel)]="exponent">
-<p>
-  EXPO: {{auxNumber | expo: exponent : 'HOLA'}}
-</p>
+<button (click)="numbers.push(4)">Add</button>
