@@ -20,6 +20,9 @@
   VAR NAME: {{name | test}}
 </p>
 
+<!-- Expo Pipe -->
+VALUE: <input type="text" [(ngModel)]="auxNumber">
+EXPO: <input type="text" [(ngModel)]="exponent">
 <p>
-  EXPO: {{ | expo: 2}}
+  EXPO: {{auxNumber | expo: exponent : 'HOLA'}}
 </p>
