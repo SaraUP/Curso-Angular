@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -42,6 +42,12 @@ export class AppComponent implements OnInit{
   exponent: number = 3;
 
   numbers = [1,2,3,4,5,6,7,8,9, 10];
+
+  
+  @HostListener('window:resize', ['$event']) onResize(event){
+    console.log('Windows resize:', event.target.innerWidth);
+    
+  }
 
   ngOnInit(){
     console.log('Pura: ', this.pura(2, 2));
