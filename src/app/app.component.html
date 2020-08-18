@@ -6,6 +6,14 @@
 
 <button (click)="numbers.push(4)">Add</button>
 
+<p></p>
+
 <div [appNgColor]="'green'" [secondColor]="'blue'">
   SARA
 </div>
+
+<p></p>
+
+<button (click)="name = 'Maria'; lastName='Perez'">Change</button>
+
+<person [name]="name" [lastName]="lastName"></person>

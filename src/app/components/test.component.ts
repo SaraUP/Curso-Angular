@@ -1,22 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentChecked, AfterContentInit, AfterViewInit, AfterViewChecked, OnDestroy} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, AfterContentChecked, AfterContentInit, AfterViewInit, AfterViewChecked, OnDestroy, SimpleChange} from '@angular/core';
 
 @Component({
-  selector: 'persona',
+  selector: 'person',
   template:`
   <div style="border: 1px solid red;">
-  <p>TEST 2</p>
-  
-  <input type="text" [(ngModel)]="name">
-  
-  <p>Valor: {{name}}</p>
-
+  <p>TEST COMPONENT</p>  
+  <p>NAME: {{name}}</p>
+  <p>NAME: {{lastName}}</p>
   </div>
   `,
   styles: [
     
   ]
 })
-export class TestComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
+export class TestComponent implements OnInit, OnChanges,  OnDestroy{
 
   //@Input() age: number;
   //@Output() clickAge = new EventEmitter()
@@ -29,50 +26,37 @@ export class TestComponent implements OnInit, OnChanges, DoCheck, AfterContentIn
 
 
   //user:string = 'Maria';
-  @Input() name:string;
+
+
+  //Interceptar propiedades de input
+  intermediaria: string;
+  
+  @Input()
+  get name(){
+    return this.intermediaria;
+  }
+  set name(name:string){
+    this.intermediaria = 'hola '+name;
+  }
+
+  @Input() lastName:string;
   
   constructor() { }
 
-  ngOnInit(): void {
-    console.log('On Init')
+  ngOnInit() {
+    console.log('On Init', this.name)
   }
 
-  ngOnChanges(){
-    console.log('On Changes')
-  }
-
-  ngDoCheck(){
-    console.log('Do Check')
-  }
-
-  ngAfterContentInit(){
-    console.log('AfterContentInit')
-  }
-
-  ngAfterContentChecked(){
-    console.log('AfterContentChecked')
-  }
-
-  ngAfterViewInit(){
-    console.log('AfterViewInit')
-  }
-
-  ngAfterViewChecked(){
-    console.log('AfterViewChecked')
+  ngOnChanges(changes: SimpleChange){
+    if(changes && changes.lastName && changes.lastName.currentValue){
+      console.log('On Changes', changes.lastName.currentValue);
+      const aux = "Bye " + changes.lastName.currentValue;
+      this.lastName = aux;
+    }
   }
 
   ngOnDestroy(){
     console.log('OnDestroy')
   }
-
-  //onClickSave(){
-    //this.clickAge.emit('Hiciste click');
-
-    //this.clickButton.emit({
-      //name: this.name,
-      //age: this.age,
-      //description: //this.description
-    //})
-  //}
 
 }

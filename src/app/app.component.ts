@@ -9,7 +9,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class AppComponent implements OnInit{
   title = 'curso-angular';
 
-  name = 'SARA';
+  name = 'S';
+  lastName='Uriarte';
 
   persons = [
     {
