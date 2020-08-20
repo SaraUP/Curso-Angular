@@ -1,25 +1,5 @@
-<!--
-<p>PIPES</p>
+<p>ROUTING</p>
 
-<p>Pure: {{numbers | pure}}</p>
-
-<p>Impure: {{numbers | impure}}</p>
-
-<button (click)="numbers.push(4)">Add</button>
-
-<p></p>
-
-<div [appNgColor]="'green'" [secondColor]="'blue'">
-  SARA
+<div style="border: 1px solid red;">
+  <router-outlet></router-outlet>
 </div>
-
-<p></p>
-
-
-<button (click)="name = 'Maria'; lastName='Perez'">Change</button>
-
-<person [name]="name" [lastName]="lastName"></person>
-
--->
-
-<div style="border: 1px solid green;" (appNgFocus)="name = 'aaaaaaaaaa'">{{name}}</div>
