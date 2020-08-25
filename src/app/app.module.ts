@@ -13,6 +13,11 @@ import { Home2Component } from './components/home2/home2.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatSliderModule} from '@angular/material/slider';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     //Componentes y directivas
@@ -26,9 +31,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     //Modulos dentro de este modulo
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+
+    MatSliderModule,
+    MatIconModule
   ],
   providers: [
     //Servicios
