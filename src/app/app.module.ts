@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { Home1Component } from './components/home1/home1.component';
 import { Home2Component } from './components/home2/home2.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     //Componentes y directivas
@@ -25,7 +27,8 @@ import { Home2Component } from './components/home2/home2.component';
     //Modulos dentro de este modulo
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [
     //Servicios
