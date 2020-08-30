@@ -10,7 +10,7 @@ export class ProductService {
   }
 
   public getProducts(): Observable<any> {
-    return this.http.get('https://certi-angular.firebaseio.com/products.json')
+    return this.http.get('https://certi-angular.firebaseio.com/products.json');
   }
 
 }
