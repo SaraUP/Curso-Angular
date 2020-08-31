@@ -1,30 +1,38 @@
 <p>login works!</p>
 
-
-<button routerLink="/pages">LOGIN</button>
-
-<!-- Ejemplos -->
 <!--
-<div *ngIf="1 ===1 ">EJEMPLO</div>
+<p>Ejemplo 1</p>
 
-<ng-template [ngIf]="1 === 1">EJEMPLO2</ng-template>
-
-<div *ngFor="let item of [1,2,3,4,5,6]">
-  <p>
-    ITEM
-  </p>
+<div style="display: flex; flex-direction: column;">
+  <input type="text" [(ngModel)]="username">
+  <input type="password" [(ngModel)]="password"> 
 </div>
 
-<ng-container *ngFor="let item of [1,2,3,4,5,6]">
-  <p>
-    ITEM 2
-  </p>
-</ng-container>
+<button (click)="onLogin()">LOGIN</button>
 
-<app-test>
-  <p>PRUEBA</p>
-</app-test>
+<p>Ejemplo 2</p>
+
+<div style="display: flex; flex-direction: column;">
+  <form #form="ngForm">
+    <input type="text" name="username" ngModel>
+    <input type="password" name="password" ngModel>
+  </form>
+</div>
+
+<button (click)="onLogin2(form)">LOGIN 2</button>
 -->
+
+<p>Ejemplo 3</p>
+
+<div style="display: flex; flex-direction: column;">
+  <form (ngSubmit)="onLogin2(form)" #form="ngForm">
+    <input type="text" name="username" ngModel>
+    <input type="password" name="password" ngModel>
+
+    <button type="submit">ENVIAR</button> 
+  </form>
+</div>
+
 
 <button (click)="sw =! sw;">SW</button>
 <p>{{sw}}</p>
