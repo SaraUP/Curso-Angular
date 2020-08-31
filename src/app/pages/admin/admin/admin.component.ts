@@ -28,7 +28,7 @@ export class AdminComponent implements OnInit {
     console.log('Valor: ', this.nameControl.value);
   }*/
 
-  onEnviar2(): vid{
+  onEnviar2(): void{
     console.log('Form Group: ', this.productForm.value);
   }
 
