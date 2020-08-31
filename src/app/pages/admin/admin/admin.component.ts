@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  //nameControl = new FormControl();
+
+  productForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.productForm = this.formBuilder.group({
+      description:'',
+      imageURL: '',
+      ownerId: '',
+      price: '',
+      title: ''
+    });
+  }
+
+  /*onEnviar(){
+    console.log('Valor: ', this.nameControl.value);
+  }*/
+
+  onEnviar2(): vid{
+    console.log('Form Group: ', this.productForm.value);
   }
 
 }
