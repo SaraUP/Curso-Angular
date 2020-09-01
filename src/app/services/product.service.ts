@@ -13,4 +13,8 @@ export class ProductService {
     return this.http.get('https://certi-angular.firebaseio.com/products.json');
   }
 
+  public addProducts(product: any): Observable<any> {
+    return this.http.post('https://certi-angular.firebaseio.com/products.json', product);
+  }
+
 }

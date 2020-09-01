@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +13,7 @@ export class AdminComponent implements OnInit {
 
   productForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private productService: ProductService) { }
 
   ngOnInit() {
     this.productForm = this.formBuilder.group({
@@ -30,6 +31,10 @@ export class AdminComponent implements OnInit {
 
   onEnviar2(): void{
     console.log('Form Group: ', this.productForm.value);
+
+    this.productService.addProducts(this.productForm.value).subscribe(res => {
+      console.log('Res: ', res)
+    });
   }
 
 }
