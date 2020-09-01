@@ -22,6 +22,7 @@
 <button (click)="onLogin2(form)">LOGIN 2</button>
 -->
 
+<!--
 <p>Ejemplo 3</p>
 
 <div style="display: flex; flex-direction: column;">
@@ -33,7 +34,24 @@
   </form>
 </div>
 
-
 <button (click)="sw =! sw;">SW</button>
 <p>{{sw}}</p>
 <p *ngElse="sw">SI ES FALSO</p>
+-->
+
+<input class="form-control" type="text" required minlength="3"
+maxlength="5" ngModel #name="ngModel">
+
+<div *ngIf="name.invalid && (name.touched || name.dirty)" class="alert alert-danger">
+  <div *ngIf="name.errors.required">
+    Error: Name is required
+  </div>
+
+  <div *ngIf="name.errors.minlength">
+    Error: Name must have 3 characters min
+  </div>
+
+  <div *ngIf="name.errors.maxlength">
+    Error: Name must have 5 characters m
+  </div>
+</div>
