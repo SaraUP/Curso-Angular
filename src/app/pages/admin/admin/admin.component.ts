@@ -11,12 +11,25 @@ import { Subscription } from 'rxjs';
 export class AdminComponent implements OnInit, OnDestroy {
 
   //nameControl = new FormControl();
+  products = [];
 
   productForm: FormGroup;
 
   productSubs: Subscription;
 
-  constructor(private formBuilder: FormBuilder, private productService: ProductService) { }
+  productGetSubs: Subscription;
+
+  constructor(private formBuilder: FormBuilder, private productService: ProductService) { 
+    
+
+    this.productGetSubs = this.productService.getProducts().subscribe(res => {
+      console.log('RESPUESTA: ', res);
+      console.log('RESPUESTA: ', Object.entries(res));
+
+      Object.entries(res).map(p => this.products.push(p[1]));
+    });
+
+  }
 
   ngOnInit(): void {
 
@@ -48,7 +61,8 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void{
-    this.productSubs.unsubscribe();
+    this.productSubs ? this.productSubs.unsubscribe() : '';
+    this.productGetSubs ? this.productGetSubs.unsubscribe() : '';
   }
 
 }
