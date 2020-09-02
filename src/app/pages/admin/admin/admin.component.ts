@@ -18,7 +18,7 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.productForm = this.formBuilder.group({
       description:['description', [Validators.required, Validators.minLength(3)]],
-      imageURL: 'image',
+      imageURL: '',
       ownerId: 'owner',
       price: 'price',
       title: 'title'
@@ -29,12 +29,18 @@ export class AdminComponent implements OnInit {
     console.log('Valor: ', this.nameControl.value);
   }*/
 
-  onEnviar2(): void{
-    console.log('Form Group: ', this.productForm.value);
+  onEnviar2(): void {
+    console.log('FORM GROUP: ', this.productForm.value);
 
-    this.productService.addProducts(this.productForm.value).subscribe(res => {
-      console.log('Res: ', res)
-    });
+    this.productService.addProducts(this.productForm.value).subscribe(
+      res => {
+      console.log('RESP: ', res);
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    );
+
   }
 
 }
