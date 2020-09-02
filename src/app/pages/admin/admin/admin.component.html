@@ -7,8 +7,8 @@ admin works!
 <button (click)="onEnviar()">Enviar</button>
 -->
 
-<form [formGroup]="productForm" styel="display: flex; flex-direction: column;">
-
+<form [formGroup]="productForm" style="display: flex; flex-direction: column;">
+  <input formControlName="description" type="text">
   <div *ngIf="productForm.get('description').invalid &&
               (productForm.get('description').touched ||
               productForm.get('description').dirty)"
@@ -21,15 +21,10 @@ admin works!
     </div>
   </div>
 
-  <input formControlName="description" type="text">
-  <input formControlName="imageURL" type="text">
+  
+<input formControlName="imageUrl" type="text">
   <input formControlName="ownerId" type="text">
   <input formControlName="price" type="text">
   <input formControlName="title" type="text">
 </form>
-
 <button (click)="onEnviar2()">Enviar</button>
-
-<!--
-  
--->

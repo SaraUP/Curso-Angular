@@ -15,18 +15,20 @@ export class AdminComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private productService: ProductService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+
     this.productForm = this.formBuilder.group({
-      description:['description', [Validators.required, Validators.minLength(3)]],
-      imageURL: '',
-      ownerId: 'owner',
-      price: 'price',
-      title: 'title'
+      description: ['description', [Validators.required, Validators.minLength(3)]],
+      imageUrl: '',
+      ownerId: '',
+      price: '',
+      title: ''
     });
+
   }
 
-  /*onEnviar(){
-    console.log('Valor: ', this.nameControl.value);
+  /*onEnviar() {
+    console.log('VALOR: ', this.nameConatrol.value);
   }*/
 
   onEnviar2(): void {
