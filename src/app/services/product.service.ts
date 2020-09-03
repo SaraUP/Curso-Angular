@@ -21,4 +21,8 @@ export class ProductService {
     return this.http.delete(`https://certi-angular.firebaseio.com/products/${id}.json`);
   }
 
+  public updateProducts(id: any, product: any): Observable<any> {
+    return this.http.put(`https://certi-angular.firebaseio.com/products/${id}.json`, product);
+  }
+
 }
