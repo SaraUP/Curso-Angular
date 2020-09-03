@@ -22,16 +22,18 @@ export class AdminComponent implements OnInit, OnDestroy {
   constructor(private formBuilder: FormBuilder, private productService: ProductService) { 
     
 
-    this.productGetSubs = this.productService.getProducts().subscribe(res => {
-      console.log('RESPUESTA: ', res);
-      console.log('RESPUESTA: ', Object.entries(res));
+   // this.productGetSubs = this.productService.getProducts().subscribe(res => {
+      //console.log('RESPUESTA: ', res);
+     // console.log('RESPUESTA: ', Object.entries(res));
 
-      Object.entries(res).map(p => this.products.push(p[1]));
-    });
+      //Object.entries(res).map(p => this.products.push(p[1]));
+    //});
 
   }
 
   ngOnInit(): void {
+
+    this.loadProduct();
 
     this.productForm = this.formBuilder.group({
       description: ['description', [Validators.required, Validators.minLength(3)]],
@@ -41,6 +43,25 @@ export class AdminComponent implements OnInit, OnDestroy {
       title: ''
     });
 
+  }
+
+  loadProduct(): void {
+    this.products = [];
+    this.productGetSubs = this.productService.getProducts().subscribe(res => {
+      Object.entries(res).map((p: any) => this.products.push({id: p[0], ...p[1]}));
+    });
+  }
+
+  onDelete(id: any): void {
+    this.productService.deleteProducts(id).subscribe(
+      res => {
+        console.log('RESPONSE: ', res);
+        this.loadProduct();
+      },
+      err => {
+        console.log('ERROR: ');
+      }
+    );
   }
 
   /*onEnviar() {

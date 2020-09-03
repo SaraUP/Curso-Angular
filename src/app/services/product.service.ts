@@ -17,4 +17,8 @@ export class ProductService {
     return this.http.post('https://certi-angular.firebaseio.com/products.json', product);
   }
 
+  public deleteProducts(id: any): Observable<any> {
+    return this.http.delete(`https://certi-angular.firebaseio.com/products/${id}.json`);
+  }
+
 }
