@@ -1,33 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminComponent } from './admin/admin.component';
-import { AdminRoutingModule } from './admin-routing.module';
+import { VeterinariaRoutingModule } from './veterinaria-routing.module';
+import { VeterinariaComponent } from './veterinaria/veterinaria.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ProductService } from '../../services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { CrudService } from '../services/crud.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule,
+    VeterinariaRoutingModule,
+
     ReactiveFormsModule,
+
     HttpClientModule,
+
     MatCardModule,
-    MatSidenavModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule
   ],
   declarations: [
-    AdminComponent
+    VeterinariaComponent
   ],
   providers: [
-    ProductService
+    CrudService
   ]
 })
-export class AdminModule { }
+export class VeterinariaModule { }

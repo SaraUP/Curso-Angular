@@ -7,9 +7,8 @@ const routes: Routes = [
   //{path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)},
   //{path: 'list', loadChildren: () => import('./pages/list/list.module').then(m => m.ListModule)}
   
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
-  {path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)}
+  {path: '', redirectTo: 'veterinaria', pathMatch: 'full'},
+  {path: 'veterinaria', loadChildren: () => import('./veterinaria/veterinaria.module').then(m => m.VeterinariaModule)}
 ];
 
 @NgModule({
