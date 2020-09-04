@@ -67,7 +67,7 @@
 
   <div class="row">
     <mat-card-title>VACUNADOS</mat-card-title>
-    <div *ngFor="let pet of vacunados" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center; ">
+    <div *ngFor="let pet of animalsVaccinated" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center; ">
 
          
             <mat-card [style.background]="pet.age < 3 ? 'orange' : 'red'" class="example-card">
@@ -124,7 +124,7 @@
 
     <div class="row">
       <mat-card-title>NO VACUNADOS</mat-card-title>
-      <div *ngFor="let pet of noVacunados" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center; ">
+      <div *ngFor="let pet of animalsNotVaccinated" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center; ">
 
          
             <mat-card [style.background]="pet.age < 3 ? 'orange' : 'red'" class="example-card">

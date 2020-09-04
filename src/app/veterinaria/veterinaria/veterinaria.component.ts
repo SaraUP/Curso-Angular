@@ -13,8 +13,8 @@ export class VeterinariaComponent implements OnInit, OnDestroy {
   pets = [];
 
   vacunados = [];
-  noVacunados = [];
-  vacunadosString = [];
+  animalsVaccinated = [];
+  animalsNotVaccinated = [];
   noVacunadosString = [];
 
   petsForm: FormGroup;
@@ -34,10 +34,8 @@ export class VeterinariaComponent implements OnInit, OnDestroy {
     this.crud.getPets().subscribe(
       res => {
         Object.entries(res).map((p: any) => this.pets.push({id: p[0], ...p[1]}));
-        this.vacunados = this.pets.filter(p => p.vaccinated);
-        this.vacunadosString = this.pets.filter(p =>  p.type === 'true');
-        this.noVacunados = this.pets.filter(p => !p.vaccinated);
-        this.noVacunadosString = this.pets.filter(p => p.type === 'false');
+        this.animalsVaccinated = this.pets.filter(animal => animal.vaccinated === true || animal.vaccinated === 'true');
+    this.animalsNotVaccinated = this.pets.filter(animal =>  animal.vaccinated === false || animal.vaccinated === 'false');;
       }
     );
   }
