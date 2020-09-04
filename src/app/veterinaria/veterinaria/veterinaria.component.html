@@ -93,65 +93,11 @@
           </mat-card-actions>
         </mat-card>
       </div>
-
-      <div *ngFor="let pet of vacunadosString" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center; ">
-
-         
-            <mat-card [style.background]="pet.age < 3 ? 'orange' : 'red'" class="example-card">
-              <mat-card-header>
-                <mat-card-title>Nombre: {{pet.name | uppercase}}</mat-card-title>
-                <mat-card-subtitle>Color: {{pet.color}}</mat-card-subtitle>
-              </mat-card-header>
-            
-              <img mat-card-image [src]="pet.urlImage" alt="Image">
-            
-              <mat-card-content>
-                <p>
-                  Vacunado: {{pet.vaccinated}}
-                </p>
-                <p>
-                  Edad: {{pet.age}}
-                </p>
-              </mat-card-content>
-            <mat-card-actions>
-
-            <button mat-button class="btn btn-dark" (click)="onEdit(pet); drawer.toggle()">Edit</button>
-            <button mat-button class="btn btn-dark" (click)="onDelete(pet.id)">Delete</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
   </div>
 
     <div class="row">
       <mat-card-title>NO VACUNADOS</mat-card-title>
       <div *ngFor="let pet of animalsNotVaccinated" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center; ">
-
-         
-            <mat-card [style.background]="pet.age < 3 ? 'orange' : 'red'" class="example-card">
-              <mat-card-header>
-                <mat-card-title>Nombre: {{pet.name | uppercase}}</mat-card-title>
-                <mat-card-subtitle>Color: {{pet.color}}</mat-card-subtitle>
-              </mat-card-header>
-            
-              <img mat-card-image [src]="pet.urlImage" alt="Image">
-            
-              <mat-card-content>
-                <p>
-                  Vacunado: {{pet.vaccinated}}
-                </p>
-                <p>
-                  Edad: {{pet.age}}
-                </p>
-              </mat-card-content>
-            <mat-card-actions>
-
-            <button mat-button class="btn btn-dark" (click)="onEdit(pet); drawer.toggle()">Edit</button>
-            <button mat-button class="btn btn-dark" (click)="onDelete(pet.id)">Delete</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-
-      <div *ngFor="let pet of noVacunadosString" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center; ">
 
          
             <mat-card [style.background]="pet.age < 3 ? 'orange' : 'red'" class="example-card">

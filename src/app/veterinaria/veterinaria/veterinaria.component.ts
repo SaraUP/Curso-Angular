@@ -11,11 +11,9 @@ import { Subscription } from 'rxjs';
 export class VeterinariaComponent implements OnInit, OnDestroy {
 
   pets = [];
-
-  vacunados = [];
+  
   animalsVaccinated = [];
   animalsNotVaccinated = [];
-  noVacunadosString = [];
 
   petsForm: FormGroup;
 
@@ -35,7 +33,7 @@ export class VeterinariaComponent implements OnInit, OnDestroy {
       res => {
         Object.entries(res).map((p: any) => this.pets.push({id: p[0], ...p[1]}));
         this.animalsVaccinated = this.pets.filter(animal => animal.vaccinated === true || animal.vaccinated === 'true');
-    this.animalsNotVaccinated = this.pets.filter(animal =>  animal.vaccinated === false || animal.vaccinated === 'false');;
+        this.animalsNotVaccinated = this.pets.filter(animal =>  animal.vaccinated === false || animal.vaccinated === 'false');;
       }
     );
   }
