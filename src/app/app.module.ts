@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { MatSliderModule } from "@angular/material/slider";
 import { MatIconModule } from "@angular/material/icon";
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { MatIconModule } from "@angular/material/icon";
   ],
   providers: [
     //Servicios
-  ],
+  AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
