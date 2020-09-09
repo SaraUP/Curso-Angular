@@ -7,7 +7,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ProductService } from '../../shared/services/product.service';
+import { ProductService } from './../../shared/services/product.service';
 import { AdminComponent } from './admin.component';
 import { RouterModule, Routes } from '@angular/router';
 
