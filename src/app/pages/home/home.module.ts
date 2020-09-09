@@ -1,26 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
-import { HomeRoutingModule } from './home-routing.module';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import { ProductService } from '../../services/product.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductService } from '../../shared/services/product.service';
+
+const routes: Routes = [
+  {path: '', component: HomeComponent}
+];
 
 @NgModule({
   imports: [
     CommonModule,
-    HomeRoutingModule,
     MatCardModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    
+    RouterModule.forChild(routes)
   ],
   declarations: [
     HomeComponent
   ],
   providers:[
     ProductService
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class HomeModule { }
