@@ -4,36 +4,23 @@ import { Subscription } from 'rxjs';
 import { ProductService } from './../../shared/services/product.service';
 
 @Component({
-  selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit, OnDestroy {
 
-  //nameControl = new FormControl();
   products = [];
 
   productForm: FormGroup;
 
   productSubs: Subscription;
-
   productGetSubs: Subscription;
-
   productDeleteSubs: Subscription;
-  
   productUpdateSubs: Subscription;
   
   idEdit: any;
 
-  constructor(private formBuilder: FormBuilder, private productService: ProductService) { 
-    
-
-   // this.productGetSubs = this.productService.getProducts().subscribe(res => {
-      //console.log('RESPUESTA: ', res);
-     // console.log('RESPUESTA: ', Object.entries(res));
-
-      //Object.entries(res).map(p => this.products.push(p[1]));
-    //});
+  constructor(private formBuilder: FormBuilder, private productService: ProductService) {
 
   }
 
@@ -53,7 +40,9 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   loadProduct(): void {
     this.products = [];
-    this.productGetSubs = this.productService.getProducts().subscribe(res => {
+
+    const userId = localStorage.getItem('userId');
+    this.productGetSubs = this.productGetSubs = this.productService.getProductsById(userId).subscribe(res => {
       Object.entries(res).map((p: any) => this.products.push({id: p[0], ...p[1]}));
     });
   }
@@ -76,7 +65,13 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   onUpdateProduct(): void {
-    this.productUpdateSubs = this.productService.updateProducts(this.idEdit, this.productForm.value).subscribe(
+    this.productUpdateSubs = this.productService.updateProducts(
+      this.idEdit,
+      {
+        ...this.productForm.value,
+        ownerId: localStorage.getItem('userId')
+      }
+    ).subscribe(
       res => {
         console.log('RESP UPDATE: ', res);
         this.loadProduct();
@@ -87,14 +82,11 @@ export class AdminComponent implements OnInit, OnDestroy {
     );
   }
 
-  /*onEnviar() {
-    console.log('VALOR: ', this.nameConatrol.value);
-  }*/
-
   onEnviar2(): void {
-    console.log('FORM GROUP: ', this.productForm.value);
-
-    this.productSubs = this.productService.addProducts(this.productForm.value).subscribe(
+    this.productSubs = this.productService.addProducts({
+      ...this.productForm.value,
+      ownerId: localStorage.getItem('userId')
+    }).subscribe(
       res => {
         console.log('RESP: ', res);
       },
@@ -102,6 +94,7 @@ export class AdminComponent implements OnInit, OnDestroy {
         console.log('ERROR DE SERVIDOR');
       }
     );
+
   }
 
   ngOnDestroy(): void{

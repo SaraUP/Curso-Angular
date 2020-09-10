@@ -26,10 +26,6 @@
         <input matInput formControlName="imageUrl" type="text">
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Owner Id</mat-label>
-        <input matInput formControlName="ownerId" type="text">
-      </mat-form-field>
-      <mat-form-field>
         <mat-label>Price</mat-label>
         <input matInput formControlName="price" type="text">
       </mat-form-field>
@@ -46,7 +42,7 @@
 
   <div class="example-sidenav-content">
     <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
+      Crear
     </button>
   </div>
 
@@ -61,7 +57,7 @@
           <mat-card-title>{{product.title}}</mat-card-title>
           <mat-card-subtitle>{{product.price}} Bs.</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="product.imageUrl" alt="Photo">
+        <img mat-card-image [src]="product.imageUrl" alt="Photo of a Shiba Inu">
         <mat-card-content>
           <p>
             {{product.description}}
@@ -74,6 +70,7 @@
       </mat-card>
 
     </div>
+
   </div>
 
 </mat-drawer-container>
