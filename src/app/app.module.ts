@@ -9,7 +9,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatIconModule } from "@angular/material/icon";
 import { Routes, RouterModule } from "@angular/router";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthInterceptor } from "./shared/interceptors/auth.interceptor";
+
 
 const routes: Routes = [
   
@@ -38,7 +40,11 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    //Servicios
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [
     AppComponent
