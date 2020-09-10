@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { AuthService } from './../shared/services/auth.service';
 
 @Component({
-  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit {
     }).subscribe(
       res => {
         console.log('LOGIN RESPONSE: ', res);
-        this.router.navigate(['pages'])
+        this.router.navigate(['pages']);
       },
       err => {
         console.log('LOGIN ERROR: ');
