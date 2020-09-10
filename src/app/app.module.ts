@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatIconModule } from "@angular/material/icon";
 import { Routes, RouterModule } from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
   
@@ -28,6 +29,8 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+
+    HttpClientModule,
 
     MatSliderModule,
     MatIconModule,

@@ -6,7 +6,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AuthService } from './../shared/services/auth.service';
 import { LoginComponent } from './login.component';
@@ -26,7 +25,6 @@ const routes: Routes = [
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule,
 
     RouterModule.forChild(routes)
   ],

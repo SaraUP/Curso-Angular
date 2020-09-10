@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductService } from './../../shared/services/product.service';
@@ -17,7 +16,6 @@ const routes: Routes = [
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    HttpClientModule,
     
     RouterModule.forChild(routes)
   ],
