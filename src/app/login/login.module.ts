@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-import { AuthService } from './../shared/services/auth.service';
 import { LoginComponent } from './login.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgElseDirective } from './../shared/directives/ng-else.directive';
@@ -31,10 +30,6 @@ const routes: Routes = [
   declarations: [
     LoginComponent,
     NgElseDirective
-  ],
-  providers: [
-    AuthService
-  ],
-  exports: [RouterModule]
+  ]
 })
 export class LoginModule { }
