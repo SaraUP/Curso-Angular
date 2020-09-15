@@ -7,7 +7,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./shared/interceptors/auth.interceptor";
 import { AuthGuard } from "./shared/guards/auth.guard";
 import { AuthService } from "./shared/services/auth.service";
-
+import { reducers } from './core';
+import { environment } from './../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 const routes: Routes = [
   {
@@ -39,7 +43,11 @@ const routes: Routes = [
 
     HttpClientModule,
 
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+
+    StoreModule.forRoot(reducers, {metaReducers}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({name: 'Angular Course', logOnly: environment.production})
   ],
   providers: [
     AuthService,
