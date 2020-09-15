@@ -7,11 +7,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./shared/interceptors/auth.interceptor";
 import { AuthGuard } from "./shared/guards/auth.guard";
 import { AuthService } from "./shared/services/auth.service";
-import { reducers } from './core';
-import { environment } from './../environments/environment';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../environments/environment";
+import {metaReducers} from './core/meta';
+import { reducers } from "./core";
 
 const routes: Routes = [
   {
