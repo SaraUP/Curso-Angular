@@ -90,6 +90,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     }).subscribe(
       res => {
         console.log('RESP: ', res);
+        this.loadProduct();
       },
       err => {
         console.log('ERROR DE SERVIDOR');
