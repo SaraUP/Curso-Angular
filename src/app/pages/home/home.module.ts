@@ -6,27 +6,26 @@ import {MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductService } from './../../shared/services/product.service';
-
-const routes: Routes = [
-  {path: '', component: HomeComponent}
-];
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    HomeRoutingModule,
     MatCardModule,
+    MatSidenavModule,
     MatButtonModule,
-    
-    RouterModule.forChild(routes)
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [
     HomeComponent
   ],
   providers:[
     ProductService
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class HomeModule { }

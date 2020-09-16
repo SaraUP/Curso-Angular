@@ -15,9 +15,18 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   productSubs: Subscription;
 
+  homeSubs: Subscription;
+
+  cart = [];
+
   constructor(private productService: ProductService, private store: Store<any>) {}
 
   ngOnInit(): void{
+    this.homeSubs = this.store.select(s => s.home).subscribe(res => {
+      this.cart = Object.assign([], res.items);
+      // JSON.parse((JSON.stringify(res))
+    });
+
     this.productSubs = this.productService.getProducts().subscribe(res => {
       console.log('RESPUESTA: ', res);
       console.log('RESPUESTA: ', Object.entries(res));
@@ -28,10 +37,11 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void{
     this.productSubs ? this.productSubs.unsubscribe() : '';
+    this.homeSubs ? this.homeSubs.unsubscribe() : '';
   }
 
   onComprar(product): void {
-    this.store.dispatch(AddProduct({product: product}));
+    this.store.dispatch(AddProduct({product: Object.assign({}, product)}));
   }
 
 }
