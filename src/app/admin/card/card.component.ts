@@ -19,6 +19,16 @@ export class CardComponent implements OnInit {
 
   homeSubs: Subscription;
 
+  pets = [];
+
+  petsForm: FormGroup;
+  petsSubs: Subscription;
+  petsGetSubs: Subscription;
+  petsUpdateSubs: Subscription;
+  petsDeleteSubs: Subscription;
+
+  idEdit: any;
+
   cart = [];
 
   animalsVaccinated = [];
@@ -36,6 +46,37 @@ export class CardComponent implements OnInit {
 
         this.animalsVaccinated = this.products.filter(animal => animal.vaccinated === true || animal.vaccinated === 'true');
         this.animalsNotVaccinated = this.products.filter(animal =>  animal.vaccinated === false || animal.vaccinated === 'false');;
+      }
+    );
+  }
+
+  onEdit(pet): void{
+    this.idEdit = pet.id;
+    this.petsForm.patchValue(pet);
+    
+    window.location.reload();
+  }
+
+  onUpdate(): void{
+    this.petsUpdateSubs = this.productService.updateProducts(this.idEdit, this.petsForm.value).subscribe(
+      res => {
+        console.log('RESP UPDATE: ', res);
+        window.location.reload();
+      },
+      err => {
+        console.log('ERROR UPDATE DE SERVIDOR');
+      }
+    );
+  }
+
+  onEnviar(): void{
+    this.petsSubs = this.productService.addProducts(this.petsForm.value).subscribe(
+      res => {
+        console.log('RESP: ', res);
+        window.location.reload();
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
       }
     );
   }
