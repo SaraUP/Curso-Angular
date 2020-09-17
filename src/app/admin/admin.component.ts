@@ -3,18 +3,13 @@ import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  public onLogout(): void{
-    this.authService.logout();
   }
 
 }
