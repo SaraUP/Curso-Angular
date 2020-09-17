@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../../shared/services/product.service';
 
@@ -20,7 +21,7 @@ export class CardComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void{
-    this.productsSubs = this.productService.getProducts().subscribe(
+    this.productSubs = this.productService.getProducts().subscribe(
       res => {
         console.log('Respuesta: ', res);
         console.log('RESPUESTA: ', Object.entries(res));
