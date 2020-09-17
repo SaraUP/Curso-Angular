@@ -2,6 +2,7 @@ import { Component, Input,  OnInit} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../../shared/services/product.service';
+import {AdminComponent} from '../admin.component';
 
 @Component({
   selector: 'app-card',
@@ -23,7 +24,7 @@ export class CardComponent implements OnInit {
   animalsVaccinated = [];
   animalsNotVaccinated = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private adminComponent: AdminComponent, private productService: ProductService) {}
 
   ngOnInit(): void{
     this.productSubs = this.productService.getProducts().subscribe(
@@ -40,9 +41,8 @@ export class CardComponent implements OnInit {
   }
 
   onDelete(id: any): void {
-    this.productService.deleteProducts(id);
+    this.adminComponent.onDelete(id);
   }
-
   ngOnDestroy(): void{
     
   }

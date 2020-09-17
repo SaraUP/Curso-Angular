@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/services/auth.service';
+import { Component, Input,  OnInit} from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ProductService } from '../shared/services/product.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,37 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  products = [];
 
-  ngOnInit() {
+  productSubs: Subscription;
+
+  productDeleteSubs: Subscription;
+
+  homeSubs: Subscription;
+
+  cart = [];
+
+  animalsVaccinated = [];
+  animalsNotVaccinated = [];
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit(): void{
+    this.productSubs = this.productService.getProducts().subscribe(
+      res => {
+        console.log('Respuesta: ', res);
+        console.log('RESPUESTA: ', Object.entries(res));
+
+        Object.entries(res).map(p => this.products.push(p[1]));
+
+        this.animalsVaccinated = this.products.filter(animal => animal.vaccinated === true || animal.vaccinated === 'true');
+        this.animalsNotVaccinated = this.products.filter(animal =>  animal.vaccinated === false || animal.vaccinated === 'false');;
+      }
+    );
   }
 
+  onDelete(id: any): void {
+    this.productService.deleteProducts(id);
+    window.location.reload();
+  }
 }
