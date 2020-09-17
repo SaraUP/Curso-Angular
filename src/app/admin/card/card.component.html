@@ -17,7 +17,7 @@
         <img mat-card-image [src]="product.urlImage" alt="Photo of a Shiba Inu">
         <mat-card-content>
           <p>
-            VACCINATED{{product.vaccinated}}
+            VACCINATED: {{product.vaccinated}}
           </p>
         </mat-card-content>
         <mat-card-actions>
@@ -40,18 +40,18 @@
 
       <mat-card class="example-card" [style.background]="product.age < 3 ? 'orange' : 'red'" class="example-card">
         <mat-card-header>
-          <mat-card-title>{{product.name}}</mat-card-title>
+          <mat-card-title>NAME: {{product.name | uppercase}}</mat-card-title>
           <mat-card-subtitle>{{product.age}}</mat-card-subtitle>
           <mat-card-subtitle>{{product.color}}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image [src]="product.urlImage" alt="Photo of a Shiba Inu">
         <mat-card-content>
           <p>
-            {{product.vaccinated}}
+            VACCINATED: {{product.vaccinated}}
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button (click)="onEdit(product); drawer.toggle()">Edit</button>
+          <button mat-button (click)="onEdit(product)">Edit</button>
           <button mat-button (click)="onDelete(product.id)">Delete</button>
         </mat-card-actions>
       </mat-card>

@@ -1,10 +1,58 @@
-<mat-drawer-container autosize style="width: 100%; height: 600px;">
+<mat-drawer-container autosize style="width: 100%; height: 300px;">
 
   <mat-drawer [opened]="true" #drawer style="width: 300px; height: 100%;" mode="side" [position]="'end'">
+
+    <form [formGroup]="petsForm" style="display: flex; flex-direction: column; padding: 20px;">
+
+      <p>Crear y Editar</p>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" type="text">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Color</mat-label>
+        <input matInput formControlName="color" type="text">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+      </mat-form-field>
+      
+      <div *ngIf="petsForm.get('name').invalid &&
+              (petsForm.get('name').touched ||
+              petsForm.get('name').dirty)"
+           class="alert alert-danger">
+        <div *ngIf="petsForm.get('name').errors.required">
+          Name is required
+        </div>
+        <div *ngIf="petsForm.get('name').errors.minlength">
+          Name must have 3 characteres min
+        </div>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>urlImage</mat-label>
+        <input matInput formControlName="urlImage" type="text">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Vaccinated</mat-label>
+        <input matInput formControlName="vaccinated" type="text">
+      </mat-form-field>
+      <div *ngIf="petsForm.get('vaccinated').invalid &&
+              (petsForm.get('vaccinated').touched ||
+              petsForm.get('vaccinated').dirty)"
+           class="alert alert-danger">
+        <div *ngIf="petsForm.get('vaccinated').errors.required">
+          Vaccinated is required
+        </div>
+      </div>
+
+    </form>
     
     <div style="text-align: center;">
-      <button mat-button style="margin:5px;" (click)="onEnviar()" >Create</button>
-      <button mat-button style="margin:5px;" (click)="onUpdate()">Update</button>
+      <button mat-button class="btn btn-dark" style="margin:5px;" (click)="onEnviar()" >Create</button>
+      <button mat-button class="btn btn-dark" style="margin:5px;" (click)="onUpdate()">Update</button>
     </div>
 
   </mat-drawer>

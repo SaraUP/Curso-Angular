@@ -40,19 +40,11 @@ export class CardComponent implements OnInit {
   }
 
   onDelete(id: any): void {
-    this.productDeleteSubs = this.productService.deleteProducts(id).subscribe(
-      res => {
-        console.log(res);
-        window.location.reload();
-      },
-      err => {
-        console.log('ERROR DE SERVIDOR');
-      }
-    );
+    this.productService.deleteProducts(id);
   }
 
   ngOnDestroy(): void{
-    this.productDeleteSubs ? this.productDeleteSubs.unsubscribe() : '';
+    
   }
 
 }
