@@ -14,6 +14,8 @@ export class CardComponent implements OnInit {
 
   productSubs: Subscription;
 
+  productDeleteSubs: Subscription;
+
   homeSubs: Subscription;
 
   cart = [];
@@ -29,6 +31,22 @@ export class CardComponent implements OnInit {
         Object.entries(res).map(p => this.products.push(p[1]));
       }
     );
+  }
+
+  onDelete(id: any): void {
+    this.productService.deleteProducts(id).subscribe(
+      res => {
+        console.log('RESPONSE: ', res);
+        window.location.reload();
+      },
+      err => {
+        console.log('ERROR: ');
+      }
+    );
+  }
+
+  ngOnDestroy(): void{
+    this.productDeleteSubs ? this.productDeleteSubs.unsubscribe() : '';
   }
 
 }
