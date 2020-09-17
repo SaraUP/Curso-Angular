@@ -9,7 +9,6 @@ import { MatInputModule } from '@angular/material/input';
 
 import { LoginComponent } from './login.component';
 import { Routes, RouterModule } from '@angular/router';
-import { NgElseDirective } from './../shared/directives/ng-else.directive';
 
 const routes: Routes = [
   {path: '', component: LoginComponent}
@@ -28,8 +27,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
-    LoginComponent,
-    NgElseDirective
+    LoginComponent
   ]
 })
 export class LoginModule { }

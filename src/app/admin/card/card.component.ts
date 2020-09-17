@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Input,  OnInit} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../../shared/services/product.service';
@@ -43,6 +43,7 @@ export class CardComponent implements OnInit {
     this.productDeleteSubs = this.productService.deleteProducts(id).subscribe(
       res => {
         console.log(res);
+        window.location.reload();
       },
       err => {
         console.log('ERROR DE SERVIDOR');

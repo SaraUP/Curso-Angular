@@ -1,3 +1,18 @@
-<p>
-sidenav works!
-</p>
+<mat-drawer-container autosize style="width: 100%; height: 600px;">
+
+  <mat-drawer [opened]="true" #drawer style="width: 300px; height: 100%;" mode="side" [position]="'end'">
+    
+    <div style="text-align: center;">
+      <button mat-button style="margin:5px;" (click)="onEnviar()" >Create</button>
+      <button mat-button style="margin:5px;" (click)="onUpdate()">Update</button>
+    </div>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      ADD
+    </button>
+  </div>
+
+</mat-drawer-container>
