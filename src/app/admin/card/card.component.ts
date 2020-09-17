@@ -20,6 +20,9 @@ export class CardComponent implements OnInit {
 
   cart = [];
 
+  animalsVaccinated = [];
+  animalsNotVaccinated = [];
+
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void{
@@ -29,18 +32,20 @@ export class CardComponent implements OnInit {
         console.log('RESPUESTA: ', Object.entries(res));
 
         Object.entries(res).map(p => this.products.push(p[1]));
+
+        this.animalsVaccinated = this.products.filter(animal => animal.vaccinated === true || animal.vaccinated === 'true');
+        this.animalsNotVaccinated = this.products.filter(animal =>  animal.vaccinated === false || animal.vaccinated === 'false');;
       }
     );
   }
 
   onDelete(id: any): void {
-    this.productService.deleteProducts(id).subscribe(
+    this.productDeleteSubs = this.productService.deleteProducts(id).subscribe(
       res => {
-        console.log('RESPONSE: ', res);
-        window.location.reload();
+        console.log(res);
       },
       err => {
-        console.log('ERROR: ');
+        console.log('ERROR DE SERVIDOR');
       }
     );
   }
