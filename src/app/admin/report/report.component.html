@@ -1,5 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">VETERINARIA</a>
+
+  <div style="background: darkgreen; padding: 15px;margin-left: 50%; height: 50px; margin-top: 10px; color: white"
+  *ngIf="report">
+    <b>VACCINATED: {{vaccinated}}, NOT VACCINATED: {{notVaccinated}}</b>
+  </div>
+
+  
   <button (click)="onLogout()">LOGOUT</button>
 </nav>
 

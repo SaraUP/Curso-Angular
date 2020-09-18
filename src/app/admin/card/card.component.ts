@@ -84,6 +84,7 @@ export class CardComponent implements OnInit {
   onDelete(id: any): void {
     this.adminComponent.onDelete(id);
   }
+  
   ngOnDestroy(): void{
     
   }

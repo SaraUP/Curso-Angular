@@ -38,8 +38,14 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  onDelete(id: any): void {
-    this.productService.deleteProducts(id);
-    window.location.reload();
+  onDelete(id: any): void{
+    this.productDeleteSubs = this.productService.deleteProducts(id).subscribe(
+      res => {
+        window.location.reload();
+      },
+      error => {
+        console.log('ERROR', error);
+      }
+    );
   }
 }
