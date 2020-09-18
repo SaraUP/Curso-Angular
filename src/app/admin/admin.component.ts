@@ -1,5 +1,5 @@
-import { Component, Input,  OnInit} from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, Input,  OnChanges,    OnInit} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ProductService } from '../shared/services/product.service';
 
@@ -8,6 +8,70 @@ import { ProductService } from '../shared/services/product.service';
   templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
+
+  petsGetSub: Subscription;
+
+  searchForm: FormGroup;
+
+  searchText = '';
+
+  searched:any;
+  searchedSend:any;
+
+  
+  animalsVaccinated = [];
+  animalsNotVaccinated = [];
+
+  constructor(private productService: ProductService, private formBuilder: FormBuilder) {
+    this.searchForm = this.formBuilder.group({
+      search: this.searchText
+    });
+  }
+
+
+loadPets() {
+    this.productSubs = this.productService.getProducts().subscribe(
+      res => {
+       console.log('Respuesta: ', res);
+        console.log('RESPUESTA: ', Object.entries(res));
+
+        Object.entries(res).map(p => this.products.push(p[1]));
+
+        this.animalsVaccinated = this.products.filter(animal => animal.vaccinated === true || animal.vaccinated === 'true');
+        this.animalsNotVaccinated = this.products.filter(animal =>  animal.vaccinated === false || animal.vaccinated === 'false');;
+        
+     }
+   );
+  }
+
+  search2() {
+
+    this.searchedSend = this.searched.toLowerCase();
+    if (this.searchedSend) {
+      this.animalsVaccinated = this.products.filter(animal => animal.vaccinated === true || animal.vaccinated === 'true');
+        this.animalsNotVaccinated = this.products.filter(animal =>  animal.vaccinated === false || animal.vaccinated === 'false');;
+    } else {
+      
+    this.loadPets()
+    }
+  }
+
+  ngOnInit(): void {
+    this.loadPets();
+
+    this.searchForm = this.formBuilder.group(
+      {
+        age: '',
+        color: '',
+        name: ['',[Validators.required, Validators.minLength(3)]],
+        urlImage: '',
+        vaccinated: [false, Validators.required]
+      }
+    )
+  }
+
+  
+
 
   products = [];
 
@@ -19,24 +83,22 @@ export class AdminComponent implements OnInit {
 
   cart = [];
 
-  animalsVaccinated = [];
-  animalsNotVaccinated = [];
 
-  constructor(private productService: ProductService) {}
+  
 
-  ngOnInit(): void{
-    this.productSubs = this.productService.getProducts().subscribe(
-      res => {
-        console.log('Respuesta: ', res);
-        console.log('RESPUESTA: ', Object.entries(res));
+  //ngOnInit(): void{
+    //this.productSubs = this.productService.getProducts().subscribe(
+      //res => {
+       // console.log('Respuesta: ', res);
+        //console.log('RESPUESTA: ', Object.entries(res));
 
-        Object.entries(res).map(p => this.products.push(p[1]));
+       // Object.entries(res).map(p => this.products.push(p[1]));
 
-        this.animalsVaccinated = this.products.filter(animal => animal.vaccinated === true || animal.vaccinated === 'true');
-        this.animalsNotVaccinated = this.products.filter(animal =>  animal.vaccinated === false || animal.vaccinated === 'false');;
-      }
-    );
-  }
+       // this.animalsVaccinated = this.products.filter(animal => animal.vaccinated === true || animal.vaccinated === 'true');
+       // this.animalsNotVaccinated = this.products.filter(animal =>  /animal.vaccinated === false || animal.vaccinated === 'false');;
+    //  }
+ ////   );
+//  }
 
   onDelete(id: any): void{
     this.productDeleteSubs = this.productService.deleteProducts(id).subscribe(
